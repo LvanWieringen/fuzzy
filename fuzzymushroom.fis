@@ -1,0 +1,99 @@
+[System]
+Name='fuzzymushroom'
+Type='mamdani'
+Version=2.0
+NumInputs=5
+NumOutputs=1
+NumRules=25
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='probor'
+DefuzzMethod='som'
+
+[Input1]
+Name='odor'
+Range=[0 8]
+NumMFs=9
+MF1='no':'trimf',[0 0 0]
+MF2='almond':'trimf',[1 1 1]
+MF3='anise':'trimf',[2 2 2]
+MF4='cresote':'trimf',[3 3 3]
+MF5='fishy':'trimf',[4 4 4]
+MF6='foul':'trimf',[5 5 5]
+MF7='musty':'trimf',[6 6 6]
+MF8='pungent':'trimf',[7 7 7]
+MF9='spicy':'trimf',[8 8 8]
+
+[Input2]
+Name='gill-size'
+Range=[0 1]
+NumMFs=2
+MF1='broad':'trimf',[-1 0 1]
+MF2='narrow':'trimf',[0 1 2]
+
+[Input3]
+Name='stalk-shape'
+Range=[0 1]
+NumMFs=2
+MF1='enlarging':'trimf',[0 0 0]
+MF2='tapering':'trimf',[1 1 1]
+
+[Input4]
+Name='ring-type'
+Range=[0 7]
+NumMFs=8
+MF1='no':'trimf',[-1 -3.036e-17 1]
+MF2='cobwebby':'trimf',[0 1 2]
+MF3='zone':'trimf',[1 2 3]
+MF4='evanescent':'trimf',[2 3 4]
+MF5='pendant':'trimf',[3 4 5]
+MF6='flaring':'trimf',[4 5 6]
+MF7='large':'trimf',[5 6 7]
+MF8='sheating':'trimf',[6 7 8.001]
+
+[Input5]
+Name='habitat'
+Range=[0 6]
+NumMFs=7
+MF1='leaves':'trimf',[-1 0 1]
+MF2='meadows':'trimf',[0 1 2]
+MF3='grasses':'trimf',[1 2 3]
+MF4='woods':'trimf',[2 3 4]
+MF5='paths':'trimf',[3 4 5]
+MF6='urban':'trimf',[4 5 6]
+MF7='waste':'trimf',[5 6 7.002]
+
+[Output1]
+Name='edibility'
+Range=[0 1]
+NumMFs=2
+MF1='poisonous':'trimf',[-1 0 1]
+MF2='edible':'trimf',[0 1 2]
+
+[Rules]
+1 2 1 5 1, 1 (1) : 1
+1 1 1 5 2, 1 (1) : 1
+2 1 1 5 2, 2 (1) : 1
+3 1 1 5 2, 2 (1) : 1
+1 1 2 4 3, 2 (1) : 1
+1 1 1 5 3, 1 (1) : 1
+2 1 1 5 3, 2 (1) : 1
+3 1 1 5 3, 2 (1) : 1
+8 2 1 5 3, 1 (1) : 1
+6 1 2 5 3, 1 (1) : 1
+6 1 1 7 3, 1 (1) : 1
+7 1 1 1 4, 1 (1) : 1
+1 1 1 5 4, 2 (1) : 1
+4 2 1 5 4, 1 (1) : 1
+1 1 2 5 4, 2 (1) : 1
+2 2 2 5 4, 2 (1) : 1
+3 2 2 5 4, 2 (1) : 1
+6 1 1 7 4, 1 (1) : 1
+1 1 1 5 5, 2 (1) : 1
+2 1 1 5 5, 2 (1) : 1
+3 1 1 5 5, 2 (1) : 1
+6 1 1 7 5, 1 (1) : 1
+1 2 1 5 6, 2 (1) : 1
+8 2 1 5 6, 1 (1) : 1
+6 1 2 5 6, 1 (1) : 1
